@@ -7,8 +7,8 @@ import cucumber.api.java.en.When;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
+//import org.openqa.selenium.support.ui.ExpectedConditions;
+//import org.openqa.selenium.support.ui.WebDriverWait;
 
 import static org.junit.Assert.assertTrue;
 
@@ -33,8 +33,6 @@ public class NewAddressesCreatorSteps extends StepsBase {
             WebElement signInButton = driver.findElement(By.id("submit-login"));
             signInButton.click();
         }
-
-
     @When("^user click on View My Customer Account Button$")
     public void userClickOnViewMyCustomerAccountButton() {
         driver.findElement(By.cssSelector("span[class='hidden-sm-down']")).click();
@@ -46,9 +44,8 @@ public class NewAddressesCreatorSteps extends StepsBase {
 
     @And("^user click on Create new address button$")
     public void userClickOnCreateNewAddressButton() {
-        driver.findElement(By.xpath("/html/body/main/section/div/div/section/section/div[3]/a/span")).click();
+        driver.findElement(By.xpath("//span[.='Create new address']")).click();
     }
-
     @And("^user fill a Address field with(.*)$")
     public void userFillAddressFieldWith(String address) {
         driver.findElement(By.name("address1")).sendKeys(address);
@@ -57,26 +54,19 @@ public class NewAddressesCreatorSteps extends StepsBase {
     @And("^user fill a Zip/Postal Code field with(.*)$")
     public void userFillZipCodeFieldWith(String postcode) {
         driver.findElement(By.name("postcode")).sendKeys(postcode);
-
     }
-
     @And("^user fill a City field with(.*)$")
         public void userFillCityFieldWith(String city) {
             driver.findElement(By.name("city")).sendKeys(city);
-
     }
-
     @And("^user click on Save button$")
     public void userClickOnSaveButton() {
-
-        driver.findElement(By.xpath("/html/body/main/section/div/div/section/section/div/div/form/footer/button")).click();
+        driver.findElement(By.xpath("//footer/button")).click();
     }
-
     @Then("^user should see a confirm of adding new address$")
     public void userShouldSeeAConfirmOfAddingNewAddress() {
         assertTrue(driver.findElement(By.cssSelector("article[class='alert alert-success']")).isDisplayed());
     }
-
     @And("^browser should be close$")
     public void browserShouldBeClose() {
         driver.close();

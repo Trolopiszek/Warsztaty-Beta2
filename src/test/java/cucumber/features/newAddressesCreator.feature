@@ -14,3 +14,5 @@ Feature: New Addresses Creator
     Examples:
     | address         | postcode         |city         |
     | Poziomkowa 123  |   00-231         |  Warszawa   |
+    | Pomidorowa 321  | 25-325           |  Wrocław    |
+    | Truskawkowa 890 | 45-123           |  Opole      |
